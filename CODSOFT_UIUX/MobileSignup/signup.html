@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mobile App Signup</title>
+<style>
+    /* CSS for styling */
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(45deg, #ff00f7, #00ffdd); /* Neon gradient background */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+    }
+    #formContainer {
+        width: 90%; /* Set width to 90% of viewport width */
+        max-width: 320px; /* Set max width to ensure it doesn't exceed a certain size */
+        background-color: rgba(154, 243, 102, 0.8); /* Semi-transparent white background */
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    button {
+        width: 100%;
+        background-color: #4caf50;
+        color: #fff;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-bottom: 10px; /* Add margin to create space between button and social icons */
+    }
+    button:hover {
+        background-color: #45a049;
+    }
+    #socialSignupOptions {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center; /* Center the social icons vertically */
+    }
+    #socialSignupOptions p {
+        margin: 0; /* Remove default margin of paragraph element */
+    }
+    #socialSignupOptions img {
+        width: 50px; /* Adjust the size of the social icons */
+        height: 50px; /* Adjust the size of the social icons */
+    }
+</style>
+</head>
+<body>
+<div id="formContainer">
+    <form id="signupForm" onsubmit="return signUp()">
+        <h2>Welcome to our App!</h2>
+        <p>Sign up to get started.</p>
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit" onclick="nextStep()">Next</button>
+        <p>Sign up with other accounts:</p> <!-- Added this line -->
+        <div id="socialSignupOptions"> <!-- Moved social signup options inside the form -->
+            <img src="C:\\Users\\dell\\OneDrive\\Desktop\\CODSOFT_UIUX\\MobileSignup\\fb.png" alt="Facebook" title="Sign up with Facebook">
+            <img src="C:\Users\dell\OneDrive\Desktop\CODSOFT_UIUX\MobileSignup\google.png" alt="Google" title="Sign up with Google">
+            <img src="C:\\Users\\dell\\OneDrive\\Desktop\\CODSOFT_UIUX\\MobileSignup\\micro.png" alt="Microsoft" title="Sign up with Microsoft">
+        </div>
+    </form>
+
+    <form id="personalizationForm" style="display: none;">
+        <h2>Personalize Your Experience</h2>
+        <p>Help us personalize your experience by providing some additional information.</p>
+        <input type="text" id="location" placeholder="Location">
+        <input type="text" id="interests" placeholder="Interests">
+        <button type="submit" onclick="completeSignUp()">Sign Up</button>
+    </form>
+</div>
+
+<script>
+    // JavaScript for form validation and submission
+    function signUp() {
+        var username = document.getElementById('username').value.trim();
+        var email = document.getElementById('email').value.trim();
+        var password = document.getElementById('password').value;
+
+        // Validate email format
+        var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+            alert('Please enter a valid email address.');
+            return false;
+        }
+
+        // Simulate signup process (replace with actual backend code)
+        console.log('Signing up...');
+        console.log('Username: ' + username);
+        console.log('Email: ' + email);
+        console.log('Password: ' + password);
+        // Clear form fields after submission (optional)
+        document.getElementById('username').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('password').value = '';
+
+        // Prevent form submission (for demonstration purposes)
+        return false;
+    }
+
+    // Function to proceed to the next step
+    function nextStep() {
+        // Hide current step and show next step
+        document.getElementById('signupForm').style.display = 'none';
+        document.getElementById('personalizationForm').style.display = 'block';
+    }
+
+    // Function to complete signup process
+    function completeSignUp() {
+        var location = document.getElementById('location').value.trim();
+        var interests = document.getElementById('interests').value.trim();
+
+        // Simulate additional signup process (replace with actual backend code)
+        console.log('Personalizing experience...');
+        console.log('Location: ' + location);
+        console.log('Interests: ' + interests);
+
+        // Show confirmation message
+        alert('Sign up successful! Welcome to our app.');
+
+        // Clear form fields after submission (optional)
+        document.getElementById('location').value = '';
+        document.getElementById('interests').value = '';
+
+        // Prevent form submission (for demonstration purposes)
+        return false;
+    }
+</script>
+</body>
+</html>
